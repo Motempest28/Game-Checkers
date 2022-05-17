@@ -130,3 +130,89 @@ function kingChecker(){
     }
     getFreeSpaces();
 }
+
+function getFreeSpaces(){
+    //ClassList reference: https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
+    if(gameBoard[selectedPiece.indexOfBoardPiece + 7] === null && spaces[selectedPiece.indexOfBoardPiece + 7].classList.contains("nPiece") !== true){
+        selectedPiece.fSevenSpace = true
+    }
+    if(gameBoard[selectedPiece.indexOfBoardPiece + 9] === null && spaces[selectedPiece.indexOfBoardPiece + 7].classList.contains("nPiece") !== true){
+        selectedPiece.fNineSpace = true
+    }
+    if(gameBoard[selectedPiece.indexOfBoardPiece - 7] === null && spaces[selectedPiece.indexOfBoardPiece + 7].classList.contains("nPiece") !== true){
+        selectedPiece.bSevenSpace = true
+    }
+    if(gameBoard[selectedPiece.indexOfBoardPiece - 9] === null && spaces[selectedPiece.indexOfBoardPiece + 7].classList.contains("nPiece") !== true){
+        selectedPiece.bSevenSpace = true
+    }
+
+    checkFreeJump();
+}
+
+function checkFreeJump(){
+    if(turn){
+            //Red piece forward movement
+            if(gameBoard[selectedPiece.indexOfBoardPiece + 14] === null && spaces[selectedPiece.indexOfBoardPiece + 14].classList.contains("nPiece") !== true
+            && gameBoard[selectedPiece.indexOfBoardPiece + 7] >= 12 ){
+                selectedPiece.fFourteenSpace = true
+            }
+            if(gameBoard[selectedPiece.indexOfBoardPiece + 18] === null && spaces[selectedPiece.indexOfBoardPiece + 18].classList.contains("nPiece") !== true
+            && gameBoard[selectedPiece.indexOfBoardPiece + 9] >= 12 ){
+                selectedPiece.fFourteenSpace = true
+            }
+            //Red piece back movement
+            if(gameBoard[selectedPiece.indexOfBoardPiece - 14] === null && spaces[selectedPiece.indexOfBoardPiece - 14].classList.contains("nPiece") !== true
+            && gameBoard[selectedPiece.indexOfBoardPiece - 7] >= 12 ){
+                selectedPiece.fFourteenSpace = true
+            }
+            if(gameBoard[selectedPiece.indexOfBoardPiece - 18] === null && spaces[selectedPiece.indexOfBoardPiece - 18].classList.contains("nPiece") !== true
+            && gameBoard[selectedPiece.indexOfBoardPiece - 9] >= 12 ){
+                selectedPiece.fFourteenSpace = true
+            }
+    else{
+            //Black piece forward movement
+            if(gameBoard[selectedPiece.indexOfBoardPiece + 14] === null && spaces[selectedPiece.indexOfBoardPiece + 14].classList.contains("nPiece") !== true
+            && gameBoard[selectedPiece.indexOfBoardPiece + 7] < 12 && gameBoard[selectedPiece.indexOfBoardPiece + 7] !== null){
+                selectedPiece.fFourteenSpace = true
+            }
+            if(gameBoard[selectedPiece.indexOfBoardPiece + 18] === null && spaces[selectedPiece.indexOfBoardPiece + 18].classList.contains("nPiece") !== true
+            && gameBoard[selectedPiece.indexOfBoardPiece + 9] < 12 && gameBoard[selectedPiece.indexOfBoardPiece + 9] !== null){
+                selectedPiece.fFourteenSpace = true
+            }
+            //Black piece back movement
+            if(gameBoard[selectedPiece.indexOfBoardPiece - 14] === null && spaces[selectedPiece.indexOfBoardPiece - 14].classList.contains("nPiece") !== true
+            && gameBoard[selectedPiece.indexOfBoardPiece - 7] < 12 && gameBoard[selectedPiece.indexOfBoardPiece - 7] !== null){
+                selectedPiece.fFourteenSpace = true
+            }
+            if(gameBoard[selectedPiece.indexOfBoardPiece - 18] === null && spaces[selectedPiece.indexOfBoardPiece - 18].classList.contains("nPiece") !== true
+            && gameBoard[selectedPiece.indexOfBoardPiece - 9] < 12 && gameBoard[selectedPiece.indexOfBoardPiece - 9] !== null){
+                selectedPiece.fFourteenSpace = true
+            }
+        }
+        pieceCondition()
+    }
+}
+
+function pieceCondition(){
+    if(selectedPiece.KingStatus){
+        givePieceMarker()
+    }
+    else{
+        //Since the piece is not a king take away the backwards movement
+        if(turn){
+            //red piece
+            selectedPiece.bEighteenSpace = false
+            selectedPiece.bFourteenSpace = false
+            selectedPiece.bNineSpace = false
+            selectedPiece.bSevenSpace = false
+        }
+        else{
+            //black piece
+            selectedPiece.fEighteenSpace = false
+            selectedPiece.fFourteenSpace = false
+            selectedPiece.fNineSpace = false
+            selectedPiece.fSevenSpace = false
+        }
+        givePieceMarker()
+    }
+}
