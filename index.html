@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,16 +8,24 @@
     <title>Motempest - Games: Checkers</title>
     <!--linking CSS reference: https://www.w3schools.com/html/html_css.asp-->
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+
 </head>
+
 <body>
 
+    <!--This div is the HUD for the game to see who's turn it is and the score-->
     <div class="turn-counter">
         <div class="redTurnText">
             Red's Turn
+            <!--P tag to track the player score/life-->
+            <p class="rScore">Score - 12</p>
         </div>
-        <p id="middle">|</p>
+        <p class="middle">|</p>
         <div class="blackTurnText">
             Blacks's Turn
+            <!--P tag to track the player score/life-->
+            <p class="bScore">Score - 12</p>
         </div>
     </div>
 
@@ -37,94 +46,143 @@
 
         <!--row 1-->
         <tr>
-            <td class="nPiece"></td> 
-            <td><p class ="rPiece" id="0"></p></td> 
-            <td class="nPiece"></td> 
-            <td><p class ="rPiece" id="1"></p></td> 
-            <td class="nPiece"></td> 
-            <td><p class ="rPiece" id="2"></p></td>  
-            <td class="nPiece"></td> 
-            <td><p class ="rPiece" id="3"></p></td> 
+            <td class="nPiece"></td>
+            <td>
+                <p class="rPiece" id="0"></p>
+            </td>
+            <td class="nPiece"></td>
+            <td>
+                <p class="rPiece" id="1"></p>
+            </td>
+            <td class="nPiece"></td>
+            <td>
+                <p class="rPiece" id="2"></p>
+            </td>
+            <td class="nPiece"></td>
+            <td>
+                <p class="rPiece" id="3"></p>
+            </td>
         </tr>
         <!--row 2-->
         <tr>
-            <td><p class ="rPiece" id="4"></p></td> 
-            <td class="nPiece"></td> 
-            <td><p class ="rPiece" id="5"></p></td> 
-            <td class="nPiece"></td> 
-            <td><p class ="rPiece" id="6"></p></td> 
-            <td class="nPiece"></td> 
-            <td><p class ="rPiece" id="7"></p></td> 
+            <td>
+                <p class="rPiece" id="4"></p>
+            </td>
+            <td class="nPiece"></td>
+            <td>
+                <p class="rPiece" id="5"></p>
+            </td>
+            <td class="nPiece"></td>
+            <td>
+                <p class="rPiece" id="6"></p>
+            </td>
+            <td class="nPiece"></td>
+            <td>
+                <p class="rPiece" id="7"></p>
+            </td>
             <td class="nPiece"></td>
         </tr>
         <!--row 3-->
         <tr>
-            <td class="nPiece"></td> 
-            <td><p class ="rPiece" id="8"></p></td> 
-            <td class="nPiece"></td> 
-            <td><p class ="rPiece"  id="9"></p></td> 
-            <td class="nPiece"></td> 
-            <td><p class ="rPiece"  id="10"></p></td>  
-            <td class="nPiece"></td> 
-            <td><p class ="rPiece"  id="11"></p></td> 
+            <td class="nPiece"></td>
+            <td>
+                <p class="rPiece" id="8"></p>
+            </td>
+            <td class="nPiece"></td>
+            <td>
+                <p class="rPiece" id="9"></p>
+            </td>
+            <td class="nPiece"></td>
+            <td>
+                <p class="rPiece" id="10"></p>
+            </td>
+            <td class="nPiece"></td>
+            <td>
+                <p class="rPiece" id="11"></p>
+            </td>
         </tr>
         <!--row 4-->
         <tr>
-            <td></td> 
-            <td class="nPiece"></td> 
-            <td></td> 
+            <td></td>
             <td class="nPiece"></td>
-            <td></td> 
-            <td class="nPiece"></td> 
-            <td></td> 
+            <td></td>
+            <td class="nPiece"></td>
+            <td></td>
+            <td class="nPiece"></td>
+            <td></td>
             <td class="nPiece"></td>
         </tr>
         <!--row 5-->
         <tr>
-            <td class="nPiece"></td> 
-            <td></td> 
-            <td class="nPiece"></td> 
-            <td></td> 
-            <td class="nPiece"></td> 
-            <td></td> 
-            <td class="nPiece"></td> 
+            <td class="nPiece"></td>
+            <td></td>
+            <td class="nPiece"></td>
+            <td></td>
+            <td class="nPiece"></td>
+            <td></td>
+            <td class="nPiece"></td>
             <td></td>
         </tr>
         <!--row 6-->
         <tr>
-            <td><p class="bPiece" id="12"></p></td> 
-            <td class="nPiece"></td> 
-            <td><p class="bPiece" id="13"></p></td> 
-            <td class="nPiece"></td> 
-            <td><p class="bPiece" id="14"></p></td> 
-            <td class="nPiece"></td> 
-            <td><p class="bPiece" id="15"></p></td> 
+            <td>
+                <p class="bPiece" id="12"></p>
+            </td>
+            <td class="nPiece"></td>
+            <td>
+                <p class="bPiece" id="13"></p>
+            </td>
+            <td class="nPiece"></td>
+            <td>
+                <p class="bPiece" id="14"></p>
+            </td>
+            <td class="nPiece"></td>
+            <td>
+                <p class="bPiece" id="15"></p>
+            </td>
             <td class="nPiece"></td>
         </tr>
         <!--row 7-->
         <tr>
-            <td class="nPiece"></td> 
-            <td><p class="bPiece" id="16"></p></td> 
-            <td class="nPiece"></td> 
-            <td><p class="bPiece" id="17"></p></td> 
-            <td class="nPiece"></td> 
-            <td><p class="bPiece" id="18"></p></td> 
-            <td class="nPiece"></td> 
-            <td><p class="bPiece" id="19"></p></td>
+            <td class="nPiece"></td>
+            <td>
+                <p class="bPiece" id="16"></p>
+            </td>
+            <td class="nPiece"></td>
+            <td>
+                <p class="bPiece" id="17"></p>
+            </td>
+            <td class="nPiece"></td>
+            <td>
+                <p class="bPiece" id="18"></p>
+            </td>
+            <td class="nPiece"></td>
+            <td>
+                <p class="bPiece" id="19"></p>
+            </td>
         </tr>
         <!--row 8-->
         <tr>
-            <td><p class="bPiece" id="20"></p></td> 
-            <td class="nPiece"></td> 
-            <td><p class="bPiece" id="21"></p></td> 
-            <td class="nPiece"></td> 
-            <td><p class="bPiece" id="22"></p></td> 
-            <td class="nPiece"></td> 
-            <td><p class="bPiece" id="23"></p></td> 
+            <td>
+                <p class="bPiece" id="20"></p>
+            </td>
+            <td class="nPiece"></td>
+            <td>
+                <p class="bPiece" id="21"></p>
+            </td>
+            <td class="nPiece"></td>
+            <td>
+                <p class="bPiece" id="22"></p>
+            </td>
+            <td class="nPiece"></td>
+            <td>
+                <p class="bPiece" id="23"></p>
+            </td>
             <td class="nPiece"></td>
         </tr>
     </table>
-    
-    <script src="script.js"></script>
+
+
 </body>
+
 </html>
